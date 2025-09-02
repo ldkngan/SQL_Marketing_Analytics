@@ -1,4 +1,4 @@
-# Google Analytics SQL Project
+# SQL Marketing Analytics
 
 ## 📌 Introduction
 This project analyzes the **Google Analytics sample dataset** on BigQuery using SQL.  
