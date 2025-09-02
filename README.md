@@ -15,6 +15,8 @@ Mục tiêu của project là thực hành kỹ năng truy vấn dữ liệu, t�
 ## 🎯 Câu hỏi phân tích & SQL Query
 
 ### Q1. Tổng số lượt truy cập (visits), số trang xem (pageviews), và số giao dịch (transactions) trong **tháng 1–3/2017**
+<img width="597" height="167" alt="image" src="https://github.com/user-attachments/assets/043ab903-347c-42f9-961f-a93b4813aaf5" />
+
 **Insight:** Lượt truy cập và số trang xem tăng đều qua từng tháng, cho thấy lưu lượng truy cập đầu năm 2017 có xu hướng tăng trưởng ổn định.
 
 ---
