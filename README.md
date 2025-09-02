@@ -1,69 +1,96 @@
-# SQL_Marketing_Analytics
-SQL project analyzing Google Analytics sample data on BigQuery to uncover marketing performance, user behavior, and revenue insights.
-
 # Google Analytics SQL Project
 
-## 📌 Giới thiệu
-Đây là project phân tích dữ liệu **Google Analytics sample dataset** trên BigQuery bằng SQL.  
-Mục tiêu của project là thực hành kỹ năng truy vấn dữ liệu, tính toán các chỉ số quan trọng trong phân tích hành vi người dùng và thương mại điện tử, đồng thời rút ra insight từ dữ liệu thực tế.  
+## 📌 Introduction
+This project analyzes the **Google Analytics sample dataset** on BigQuery using SQL.  
+The goal of this project is to practice SQL query skills, calculate key metrics in user behavior and e-commerce analysis, and generate meaningful business insights from real-world data.  
 
 ## 🗂 Dataset
-- Nguồn: [Google Analytics Sample Dataset](https://console.cloud.google.com/marketplace/product/google/ga360-data) (BigQuery Public Data)  
-- Nội dung: Dữ liệu session năm 2017 của Google Merchandise Store (bao gồm thông tin truy cập, hành vi, giao dịch mua hàng).  
-- Bảng chính: `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
+- **Source:** [Google Analytics Sample Dataset](https://console.cloud.google.com/marketplace/product/google/ga360-data) (BigQuery Public Data)  
+- **Description:** Session data from 2017 for the Google Merchandise Store, including user interactions, behaviors, and purchase transactions.  
+- **Main table:** `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
 
-## 🎯 Câu hỏi phân tích & SQL Query
+## 🎯 Analysis Questions & SQL Queries
 
-### Q1. Tổng số lượt truy cập (visits), số trang xem (pageviews), và số giao dịch (transactions) trong **tháng 1–3/2017**
-<img width="597" height="167" alt="image" src="https://github.com/user-attachments/assets/043ab903-347c-42f9-961f-a93b4813aaf5" />
+### Q1. Total visits, pageviews, and transactions in **January–March 2017**
+**SQL code**
 
-**Insight:** Lượt truy cập và số trang xem tăng đều qua từng tháng, cho thấy lưu lượng truy cập đầu năm 2017 có xu hướng tăng trưởng ổn định.
+**Result**
 
----
-
-### Q2. Tính **bounce rate** (tỷ lệ thoát) theo từng nguồn traffic trong **tháng 7/2017**
-**Insight:** Một số nguồn traffic có bounce rate cao bất thường, gợi ý cần tối ưu landing page hoặc cải thiện chất lượng traffic từ nguồn đó.
+**Insight:** Visits and pageviews increased steadily month by month, indicating consistent growth in traffic during early 2017.
 
 ---
 
-### Q3. Doanh thu (revenue) theo nguồn traffic, theo **tuần** và theo **tháng 6/2017**
-**Insight:** Một số nguồn traffic đem lại doanh thu ổn định theo tuần, nhưng có xu hướng khác biệt theo từng tháng → có thể liên quan đến chiến dịch marketing theo thời điểm.
+### Q2. **Bounce rate** by traffic source in **July 2017**
+**SQL code**
+
+**Result**
+
+**Insight:** Some traffic sources showed unusually high bounce rates, suggesting a need to optimize landing pages or improve traffic quality from those sources.
 
 ---
 
-### Q4. Trung bình số trang xem theo **loại người dùng (người mua vs không mua)** trong tháng 6–7/2017
-**Insight:** Người mua hàng có số trang xem cao hơn rõ rệt so với người không mua → cho thấy mức độ tương tác cao hơn dẫn đến khả năng mua hàng.
+### Q3. Revenue by traffic source, by **week** and by **month** in June 2017
+**SQL code**
+
+**Result**
+
+**Insight:** Certain traffic sources generated stable weekly revenue, but showed different patterns on a monthly level — possibly reflecting the impact of specific marketing campaigns.
 
 ---
 
-### Q5. Trung bình số giao dịch trên mỗi người dùng đã mua hàng trong **tháng 7/2017**
-**Insight:** Người mua hàng thường thực hiện nhiều hơn 1 giao dịch → có tiềm năng khách hàng trung thành (repeat buyers).
+### Q4. Average pageviews by user type (**purchasers vs non-purchasers**) in June–July 2017
+**SQL code**
+
+**Result**
+
+**Insight:** Purchasers had significantly higher pageviews than non-purchasers → higher engagement is strongly correlated with purchase likelihood.
 
 ---
 
-### Q6. Trung bình số tiền chi tiêu trên mỗi session của người mua hàng trong **tháng 7/2017**
-**Insight:** Giá trị trung bình trên mỗi session của người mua hàng khá cao → cho thấy mức chi tiêu đáng kể cho từng lần ghé thăm.
+### Q5. Average number of transactions per purchasing user in **July 2017**
+**SQL code**
+
+**Result**
+
+**Insight:** Purchasing users tended to make more than one transaction → indicates potential for loyal/repeat buyers.
 
 ---
 
-### Q7. Các sản phẩm khác được mua bởi khách hàng đã mua **"YouTube Men's Vintage Henley"** trong **tháng 7/2017**
-**Insight:** Khách hàng mua Henley thường có xu hướng mua kèm thêm các sản phẩm khác, gợi ý khả năng cross-sell.
+### Q6. Average revenue per session (only purchasers) in **July 2017**
+**SQL code**
+
+**Result**
+
+**Insight:** Each purchasing session contributed a relatively high average revenue, highlighting strong spending per visit.
 
 ---
 
-### Q8. Tính **cohort map** từ product view → add to cart → purchase trong tháng 1–3/2017
-**Insight:** Tỷ lệ chuyển đổi từ product view sang add-to-cart và từ view sang purchase còn thấp, là điểm cần tối ưu trong funnel mua hàng.
+### Q7. Other products purchased by customers who bought **"YouTube Men's Vintage Henley"** in **July 2017**
+**SQL code**
+
+**Result**
+
+**Insight:** Customers who purchased this product often bought additional items, suggesting strong cross-sell opportunities.
 
 ---
 
-## 📊 Kỹ năng thể hiện
-- SQL: Window functions, CTEs, UNION, JOIN, Aggregate functions  
-- Phân tích hành vi khách hàng: bounce rate, funnel conversion, cohort  
-- Business insight: hành vi mua hàng, giá trị khách hàng, hiệu quả nguồn traffic  
+### Q8. **Cohort map** from product view → add-to-cart → purchase in January–March 2017
+**SQL code**
 
-## 🚀 Hướng phát triển
-- Trực quan hóa dữ liệu bằng Power BI/Tableau để làm nổi bật insight  
-- Mở rộng phân tích theo cohort dài hạn (LTV, retention rate)  
-- Kết hợp thêm mô hình phân tích RFM để phân khúc khách hàng
+**Result**
+
+**Insight:** Conversion rates from product views to add-to-cart and purchase were relatively low → indicates room for funnel optimization.
+
+---
+
+## 📊 Skills Demonstrated
+- **SQL:** Window functions, CTEs, UNION, JOIN, aggregate functions.  
+- **Customer behavior analysis:** bounce rate, funnel conversion, cohort tracking.  
+- **Business insights:** customer purchase behavior, revenue contribution, traffic source effectiveness.  
+
+## 🚀 Future Improvements
+- Visualize results using Power BI or Tableau to better highlight insights.  
+- Expand to long-term cohort analysis (LTV, retention rate).  
+- Apply RFM analysis to segment customers more effectively.  
 
 ---
