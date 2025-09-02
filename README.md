@@ -13,17 +13,7 @@ The goal of this project is to practice SQL query skills, calculate key metrics 
 
 ### Q1. Total visits, pageviews, and transactions in **January–March 2017**
 - **SQL code**
-```sql
-select
-  format_date('%Y%m', parse_date('%Y%m%d',date)) month
-  ,count(totals.visits) visits
-  ,sum(totals.pageviews) pageviews
-  ,sum(totals.transactions) transactions
-from `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
-where _table_suffix between '0101' and '0331'
-group by 1
-order by 1;
-```
+
 <img width="546" height="154" alt="image" src="https://github.com/user-attachments/assets/ea025418-b8dc-4786-ae4f-42fae078b635" />
 
 - **Result**
@@ -67,43 +57,61 @@ order by 1;
 
 - **Result**
 
+<img width="511" height="80" alt="image" src="https://github.com/user-attachments/assets/82296bb8-b1bc-4b42-a6b4-bf81c583fd0e" />
+
 - **Insight:** Purchasers had significantly higher pageviews than non-purchasers → higher engagement is strongly correlated with purchase likelihood.
 
 ---
 
 ### Q5. Average number of transactions per purchasing user in **July 2017**
-**SQL code**
+- **SQL code**
 
-**Result**
+<img width="751" height="151" alt="image" src="https://github.com/user-attachments/assets/beb63551-6a7b-49d1-bcce-b9fa91ef4555" />
 
-**Insight:** Purchasing users tended to make more than one transaction → indicates potential for loyal/repeat buyers.
+- **Result**
+
+<img width="484" height="54" alt="image" src="https://github.com/user-attachments/assets/392cb887-15c9-49ed-9ea1-8ef68d8cbd0c" />
+
+- **Insight:** Purchasing users tended to make more than one transaction → indicates potential for loyal/repeat buyers.
 
 ---
 
 ### Q6. Average revenue per session (only purchasers) in **July 2017**
-**SQL code**
+- **SQL code**
 
-**Result**
+<img width="700" height="152" alt="image" src="https://github.com/user-attachments/assets/d10df4a7-a6bf-466a-9abf-0ff9434781bd" />
 
-**Insight:** Each purchasing session contributed a relatively high average revenue, highlighting strong spending per visit.
+- **Result**
+
+<img width="478" height="54" alt="image" src="https://github.com/user-attachments/assets/68d308eb-5e64-4e26-b8c4-336abbc4af4f" />
+
+- **Insight:** Each purchasing session contributed a relatively high average revenue, highlighting strong spending per visit.
 
 ---
 
 ### Q7. Other products purchased by customers who bought **"YouTube Men's Vintage Henley"** in **July 2017**
-**SQL code**
+- **SQL code**
 
-**Result**
+<img width="645" height="391" alt="image" src="https://github.com/user-attachments/assets/1dbaf24c-b2ec-4684-9530-812e329524d8" />
 
-**Insight:** Customers who purchased this product often bought additional items, suggesting strong cross-sell opportunities.
+- **Result**
+
+<img width="386" height="296" alt="image" src="https://github.com/user-attachments/assets/d98c8880-8905-426f-809c-fb3061e9c7eb" />
+
+- **Insight:** Customers who purchased this product often bought additional items, suggesting strong cross-sell opportunities.
 
 ---
 
 ### Q8. **Cohort map** from product view → add-to-cart → purchase in January–March 2017
-**SQL code**
+- **SQL code**
 
-**Result**
+<img width="571" height="792" alt="image" src="https://github.com/user-attachments/assets/8b942aa6-7d74-4116-81f4-6e0cced3ea1a" />
 
-**Insight:** Conversion rates from product views to add-to-cart and purchase were relatively low → indicates room for funnel optimization.
+- **Result**
+
+<img width="881" height="109" alt="image" src="https://github.com/user-attachments/assets/d64aa493-d8af-4b10-b91c-e7e4c73532ef" />
+
+- **Insight:** Conversion rates from product views to add-to-cart and purchase were relatively low → indicates room for funnel optimization.
 
 ---
 
