@@ -13,11 +13,9 @@ The goal of this project is to practice SQL query skills, calculate key metrics 
 
 ### Q1. Total visits, pageviews, and transactions in **January–March 2017**
 **SQL code**
-
 <img width="546" height="154" alt="image" src="https://github.com/user-attachments/assets/ea025418-b8dc-4786-ae4f-42fae078b635" />
 
 **Result**
-
 <img width="635" height="107" alt="image" src="https://github.com/user-attachments/assets/e977de1d-5210-49a5-bb86-19c929dc06ab" />
 
 **Insight:** Visits and pageviews increased steadily month by month, indicating consistent growth in traffic during early 2017.
