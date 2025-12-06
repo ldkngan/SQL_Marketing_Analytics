@@ -1,18 +1,32 @@
-# E-Commerce Marketing Analytics
+# SQL E-Commerce Marketing Analytics
+
+## 📜 Table of Contents
+- Introduction
+- SQL Queries & Results
+- Insights
+
+---
 
 ## 📌 Introduction
-This project analyzes the **Google Analytics sample dataset** on BigQuery using SQL.  
-The goal of this project is to practice SQL query skills, calculate key metrics in user behavior and e-commerce analysis, and generate meaningful business insights from real-world data.  
+### 🎯 Objectives
+- This project analyzes the **Google Analytics sample dataset** on BigQuery using SQL.  
+- The goal of this project is to practice SQL query skills, calculate key metrics in user behavior and e-commerce analysis, and generate meaningful business insights from real-world data.  
 
-## 🗂 Dataset
+### 🗂 Dataset
 - **Source:** [Google Analytics Sample Dataset](https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2sgoogle_analytics_sample!3sga_sessions_20170801) (BigQuery Public Data)  
 - **Description:** Session data from 2017 for the Google Merchandise Store, including user interactions, behaviors, and purchase transactions.  
 - **Main table:** `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
 
-## 🎯 Analysis Questions & SQL Queries
+### 📊 Skills Demonstrated
+- **SQL:** Window functions, CTEs, UNION, JOIN, aggregate functions.  
+- **Customer behavior analysis:** bounce rate, funnel conversion, cohort tracking.  
+- **Business insights:** customer purchase behavior, revenue contribution, traffic source effectiveness.
+
+---
+
+## 🎯 SQL Queries & Results
 
 ### Q1. Total visits, pageviews, and transactions in **January–March 2017**
-- **SQL code**
 ```sql
 SELECT
   FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
@@ -27,12 +41,7 @@ ORDER BY 1;
 - **Result**
 <img width="635" height="107" alt="image" src="https://github.com/user-attachments/assets/e977de1d-5210-49a5-bb86-19c929dc06ab" />
 
-- **Insight:** Visits and pageviews increased steadily month by month, indicating consistent growth in traffic during early 2017.
-
----
-
 ### Q2. **Bounce rate** by traffic source in **July 2017**
-- **SQL code**
 ```sql
 SELECT 
   trafficSource.source AS source
@@ -46,12 +55,7 @@ ORDER BY 2 DESC;
 - **Result**
 <img width="633" height="565" alt="image" src="https://github.com/user-attachments/assets/a1d82214-82b6-4311-b130-9df797772a02" />
 
-- **Insight:** Some traffic sources showed unusually high bounce rates, suggesting a need to optimize landing pages or improve traffic quality from those sources.
-
----
-
 ### Q3. Revenue by traffic source, by **week** and by **month** in June 2017
-- **SQL code**
 ```sql
 SELECT
   'Month' AS time_type
@@ -81,12 +85,7 @@ ORDER BY 3,2;
 - **Result**
 <img width="785" height="648" alt="image" src="https://github.com/user-attachments/assets/6c869d5a-70dd-47dc-bbf6-94d45f8a8f88" />
 
-- **Insight:** Certain traffic sources generated stable weekly revenue, but showed different patterns on a monthly level — possibly reflecting the impact of specific marketing campaigns.
-
----
-
 ### Q4. Average pageviews by user type (**purchasers vs non-purchasers**) in June–July 2017
-- **SQL code**
 ```sql
 WITH cal_avg_pageviews_purchase AS (
   SELECT
@@ -125,12 +124,7 @@ ORDER BY 1;
 - **Result**
 <img width="511" height="80" alt="image" src="https://github.com/user-attachments/assets/82296bb8-b1bc-4b42-a6b4-bf81c583fd0e" />
 
-- **Insight:** Purchasers had significantly higher pageviews than non-purchasers → higher engagement is strongly correlated with purchase likelihood.
-
----
-
 ### Q5. Average number of transactions per purchasing user in **July 2017**
-- **SQL code**
 ```sql
 SELECT
   FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
@@ -145,12 +139,7 @@ GROUP BY 1;
 - **Result**
 <img width="484" height="54" alt="image" src="https://github.com/user-attachments/assets/392cb887-15c9-49ed-9ea1-8ef68d8cbd0c" />
 
-- **Insight:** Purchasing users tended to make more than one transaction → indicates potential for loyal/repeat buyers.
-
----
-
 ### Q6. Average revenue per session (only purchasers) in **July 2017**
-- **SQL code**
 ```sql
 SELECT
   FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
@@ -165,12 +154,7 @@ GROUP BY 1;
 - **Result**
 <img width="478" height="54" alt="image" src="https://github.com/user-attachments/assets/68d308eb-5e64-4e26-b8c4-336abbc4af4f" />
 
-- **Insight:** Each purchasing session contributed a relatively high average revenue, highlighting strong spending per visit.
-
----
-
 ### Q7. Other products purchased by customers who bought **"YouTube Men's Vintage Henley"** in **July 2017**
-- **SQL code**
 ```sql
 WITH raw_data AS (
   SELECT DISTINCT fullVisitorId
@@ -199,12 +183,7 @@ ORDER BY 2 DESC, 1;
 - **Result**
 <img width="386" height="296" alt="image" src="https://github.com/user-attachments/assets/d98c8880-8905-426f-809c-fb3061e9c7eb" />
 
-- **Insight:** Customers who purchased this product often bought additional items, suggesting strong cross-sell opportunities.
-
----
-
 ### Q8. **Cohort map** from product view → add-to-cart → purchase in January–March 2017
-- **SQL code**
 ```sql
 WITH cal_num_product_view AS (
   SELECT
@@ -258,18 +237,16 @@ ORDER BY 1;
 - **Result**
 <img width="881" height="109" alt="image" src="https://github.com/user-attachments/assets/d64aa493-d8af-4b10-b91c-e7e4c73532ef" />
 
-- **Insight:** Conversion rates from product views to add-to-cart and purchase were relatively low → indicates room for funnel optimization.
-
 ---
 
-## 📊 Skills Demonstrated
-- **SQL:** Window functions, CTEs, UNION, JOIN, aggregate functions.  
-- **Customer behavior analysis:** bounce rate, funnel conversion, cohort tracking.  
-- **Business insights:** customer purchase behavior, revenue contribution, traffic source effectiveness.  
-
-## 🚀 Future Improvements
-- Visualize results using Power BI or Tableau to better highlight insights.  
-- Expand to long-term cohort analysis (LTV, retention rate).  
-- Apply RFM analysis to segment customers more effectively.  
-
----
+## 💡 Insights
+| Queries | Insights |
+|-------|----------|
+| **Q1. Total visits, pageviews, and transactions in January–March 2017** | Visits and pageviews increased steadily month by month, indicating consistent growth in traffic during early 2017. |
+| **Q2. Bounce rate by traffic source in July 2017** | Some traffic sources showed unusually high bounce rates, suggesting a need to optimize landing pages or improve traffic quality from those sources. |
+| **Q3. Revenue by traffic source, by week and by month in June 2017** | Certain traffic sources generated stable weekly revenue but showed different patterns on a monthly level — possibly reflecting the impact of specific marketing campaigns. |
+| **Q4. Average pageviews by user type (purchasers vs non-purchasers) in June–July 2017** | Purchasers had significantly higher pageviews than non-purchasers, showing that engagement strongly correlates with purchase likelihood. |
+| **Q5. Average number of transactions per purchasing user in July 2017** | Purchasing users tended to make more than one transaction, indicating potential for loyal or repeat buyers. |
+| **Q6. Average revenue per session (only purchasers) in July 2017** | Each purchasing session contributed a relatively high average revenue, highlighting strong spending per visit. |
+| **Q7. Other products purchased by customers who bought "YouTube Men's Vintage Henley" in July 2017** | Customers who purchased this product often bought additional items, suggesting strong cross-sell opportunities. |
+| **Q8. Cohort map from product view → add-to-cart → purchase in January–March 2017** | Conversion rates from product views to add-to-cart and purchase were relatively low, revealing opportunities to optimize the funnel. |
