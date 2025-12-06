@@ -5,7 +5,7 @@ This project analyzes the **Google Analytics sample dataset** on BigQuery using 
 The goal of this project is to practice SQL query skills, calculate key metrics in user behavior and e-commerce analysis, and generate meaningful business insights from real-world data.  
 
 ## 🗂 Dataset
-- **Source:** [Google Analytics Sample Dataset](https://console.cloud.google.com/marketplace/product/google/ga360-data) (BigQuery Public Data)  
+- **Source:** [Google Analytics Sample Dataset](https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2sgoogle_analytics_sample!3sga_sessions_20170801) (BigQuery Public Data)  
 - **Description:** Session data from 2017 for the Google Merchandise Store, including user interactions, behaviors, and purchase transactions.  
 - **Main table:** `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
 
