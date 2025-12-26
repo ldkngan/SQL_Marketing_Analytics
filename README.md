@@ -1,30 +1,30 @@
 # SQL E-Commerce Marketing Analytics
 
-## 📜 Table of Contents
+## Table of Contents
 - Introduction
 - SQL Queries & Results
 - Insights
 
 ---
 
-## 📌 Introduction
-### 🎯 Objectives
+## Introduction
+### Objectives
 - This project analyzes the **Google Analytics sample dataset** on BigQuery using SQL.  
 - The goal of this project is to practice SQL query skills, calculate key metrics in user behavior and e-commerce analysis, and generate meaningful business insights from real-world data.  
 
-### 🗂 Dataset
+### Dataset
 - **Source:** [Google Analytics Sample Dataset](https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2sgoogle_analytics_sample!3sga_sessions_20170801) (BigQuery Public Data)  
 - **Description:** Session data from 2017 for the Google Merchandise Store, including user interactions, behaviors, and purchase transactions.  
 - **Main table:** `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
 
-### 📊 Skills Demonstrated
+### Skills Demonstrated
 - **SQL:** Window functions, CTEs, UNION, JOIN, aggregate functions.  
 - **Customer behavior analysis:** bounce rate, funnel conversion, cohort tracking.  
 - **Business insights:** customer purchase behavior, revenue contribution, traffic source effectiveness.
 
 ---
 
-## 🎯 SQL Queries & Results
+## SQL Queries & Results
 
 ### Q1. Total visits, pageviews, and transactions in **January–March 2017**
 ```sql
@@ -239,7 +239,7 @@ ORDER BY 1;
 
 ---
 
-## 💡 Insights
+## Insights
 | Queries | Insights |
 |-------|----------|
 | **Q1. Total visits, pageviews, and transactions in January–March 2017** | Visits and pageviews increased steadily month by month, indicating consistent growth in traffic during early 2017. |
