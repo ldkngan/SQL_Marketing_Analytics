@@ -4,9 +4,9 @@ This project analyzes Google Analytics sample data on BigQuery to uncover market
 ---
 
 ## Table of Contents
-- Introduction
-- SQL Queries & Results
-- Insights
+1. Introduction
+2. SQL Queries & Results
+3. Insights
 
 ---
 
