@@ -1,4 +1,4 @@
-# SQL E-Commerce Marketing Analytics
+# SQL E-Commerce Marketing Analysis
 
 ## Table of Contents
 - Introduction
