@@ -98,7 +98,7 @@ SELECT
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201706*`
 ,UNNEST(hits)
 ,UNNEST(product)
-WHERE productRevenue IS NOT NULL
+WHERE productRevenue IS NOT NULL -- Only include hits that generated revenue
 GROUP BY 2,3
 
 UNION ALL
@@ -111,7 +111,7 @@ SELECT
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201706*`
 ,UNNEST(hits)
 ,UNNEST(product)
-WHERE productRevenue IS NOT NULL
+WHERE productRevenue IS NOT NULL -- Only include hits that generated revenue
 GROUP BY 2,3
 ORDER BY 3,2;
 ```
@@ -129,7 +129,7 @@ This analysis aims to:
 In short, this query helps validate the assumption that **users who purchase tend to explore more pages**, providing insight into how engagement depth correlates with conversion behavior.
 
 ```sql
-WITH cal_avg_pageviews_purchase AS (
+WITH cal_avg_pageviews_purchase AS ( -- Calculate average pageviews for purchasers
   SELECT
     FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
     ,SUM(totals.pageviews)/COUNT(DISTINCT fullVisitorId) AS avg_pageviews_purchase
@@ -142,7 +142,7 @@ WITH cal_avg_pageviews_purchase AS (
   GROUP BY 1
 ),
 
-cal_avg_pageviews_non_purchase AS (
+cal_avg_pageviews_non_purchase AS ( -- Calculate average pageviews for non-purchasers
   SELECT
     FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
     ,SUM(totals.pageviews)/COUNT(DISTINCT fullVisitorId) AS avg_pageviews_non_purchase
@@ -183,8 +183,8 @@ SELECT
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`
 ,UNNEST(hits)
 ,UNNEST(product)
-WHERE totals.transactions >= 1
-  AND productRevenue IS NOT NULL
+WHERE totals.transactions >= 1 -- Only include sessions that resulted in a purchase
+  AND productRevenue IS NOT NULL -- Ensure transaction is valid
 GROUP BY 1;
 ```
 - **Result**
@@ -207,8 +207,8 @@ SELECT
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`
 ,UNNEST(hits)
 ,UNNEST(product)
-WHERE totals.transactions IS NOT NULL
-  AND productRevenue IS NOT NULL
+WHERE totals.transactions IS NOT NULL -- Only sessions with transactions
+  AND productRevenue IS NOT NULL -- Ensure transaction is valid
 GROUP BY 1;
 ```
 - **Result**
@@ -225,17 +225,17 @@ This analysis aims to:
 In short, this query reveals **co-purchase relationships**, helping businesses design more effective product recommendations and increase average order value.
 
 ```sql
-WITH raw_data AS (
+WITH raw_data AS ( -- Identify buyers of the target product
   SELECT DISTINCT fullVisitorId
   FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`
   ,UNNEST(hits)
   ,UNNEST(product)
-  WHERE totals.transactions >= 1
-    AND productRevenue IS NOT NULL
-    AND v2ProductName = "YouTube Men's Vintage Henley"
+  WHERE totals.transactions >= 1 -- Only completed purchases
+    AND productRevenue IS NOT NULL -- Ensure transaction is valid
+    AND v2ProductName = "YouTube Men's Vintage Henley" -- Target product
 )
 
-SELECT
+SELECT -- Find other products they bought
   v2ProductName AS other_purchased_products
   ,SUM(productQuantity) AS quantity
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*` a
@@ -245,7 +245,7 @@ INNER JOIN raw_data r
   ON a.fullVisitorId = r.fullVisitorId
   AND totals.transactions >= 1
   AND productRevenue IS NOT NULL
-  AND v2ProductName <> "YouTube Men's Vintage Henley"
+  AND v2ProductName <> "YouTube Men's Vintage Henley" -- Exclude the original target product
 GROUP BY 1
 ORDER BY 2 DESC, 1;
 ```
@@ -263,7 +263,7 @@ This analysis aims to:
 In short, this query provides a **funnel-level cohort view of user behavior**, highlighting opportunities to optimize product pages, cart experience, and checkout flow to improve overall conversion performance.
 
 ```sql
-WITH cal_num_product_view AS (
+WITH cal_num_product_view AS ( -- Calculate product views
   SELECT
     FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
     ,COUNT(v2ProductName) AS num_product_view
@@ -271,11 +271,11 @@ WITH cal_num_product_view AS (
   ,UNNEST(hits)
   ,UNNEST(product)
   WHERE _TABLE_SUFFIX BETWEEN '0101' AND '0331'
-    AND eCommerceAction.action_type = '2'
+    AND eCommerceAction.action_type = '2' -- eCommerce action type 2 = product view
   GROUP BY 1
 ),
 
-cal_num_addtocart AS (
+cal_num_addtocart AS ( -- Calculate add-to-cart events
   SELECT
     FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
     ,COUNT(v2ProductName) AS num_addtocart
@@ -283,11 +283,11 @@ cal_num_addtocart AS (
   ,UNNEST(hits)
   ,UNNEST(product)
   WHERE _TABLE_SUFFIX BETWEEN '0101' AND '0331'
-    AND eCommerceAction.action_type = '3'
+    AND eCommerceAction.action_type = '3' -- eCommerce action type 3 = add to cart
   GROUP BY 1
 ),
 
-cal_num_purchase AS (
+cal_num_purchase AS ( -- Calculate purchases
   SELECT
     FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month
     ,COUNT(v2ProductName) AS num_purchase
@@ -295,18 +295,18 @@ cal_num_purchase AS (
   ,UNNEST(hits)
   ,UNNEST(product)
   WHERE _TABLE_SUFFIX BETWEEN '0101' AND '0331'
-    AND eCommerceAction.action_type = '6'
-    AND productRevenue IS NOT NULL
+    AND eCommerceAction.action_type = '6' -- eCommerce action type 6 = purchase
+    AND productRevenue IS NOT NULL -- Ensure transaction is valid
   GROUP BY 1
 )
 
-SELECT
+SELECT -- Build funnel metrics
   month
   ,num_product_view
   ,num_addtocart
   ,num_purchase
-  ,ROUND(100.0*num_addtocart/num_product_view,2) AS add_to_cart_rate
-  ,ROUND(100.0*num_purchase/num_product_view,2) AS purchase_rate
+  ,ROUND(100.0*num_addtocart/num_product_view,2) AS add_to_cart_rate -- Add-to-cart conversion rate (%)
+  ,ROUND(100.0*num_purchase/num_product_view,2) AS purchase_rate -- Purchase conversion rate (%)
 FROM cal_num_product_view
 LEFT JOIN cal_num_addtocart USING(month)
 LEFT JOIN cal_num_purchase USING(month)
