@@ -6,33 +6,33 @@ This project analyzes Google Analytics sample data on BigQuery to uncover **mark
 - **Tool Used**: SQL/BigQuery
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 1. Introduction
 2. SQL Queries & Results
 3. Insights & Recommendations
 
 ---
 
-## Introduction
-### Objectives
-- This project analyzes the **Google Analytics sample dataset** on BigQuery using SQL.  
+## ✨ Introduction
+### 🎯 Objectives
+- This project analyzes the Google Analytics sample dataset on **BigQuery** using **SQL**.  
 - The goal of this project is to practice SQL query skills, calculate key metrics in user behavior and e-commerce analysis, and generate meaningful business insights from real-world data.  
 
-### Dataset
+### 📂 Dataset
 - **Source:** [Google Analytics Sample Dataset](https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2sgoogle_analytics_sample!3sga_sessions_20170801) (BigQuery Public Data)  
 - **Description:** Session data from 2017 for the Google Merchandise Store, including user interactions, behaviors, and purchase transactions.  
 - **Main table:** `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
 
-### Skills Demonstrated
+### ⚒️ Skills Demonstrated
 - **SQL:** Window functions, CTEs, UNION, JOIN, aggregate functions.  
 - **Customer behavior analysis:** bounce rate, funnel conversion, cohort tracking.  
 - **Business insights:** customer purchase behavior, revenue contribution, traffic source effectiveness.
 
 ---
 
-## SQL Queries & Results
+## 💻 SQL Queries & Results
 
-### Q1. Total visits, pageviews, and transactions in **January–March 2017**
+### 📌 Q1. Total visits, pageviews, and transactions in **January–March 2017**
 The purpose of this query is to evaluate the **overall website performance trend in Q1 2017** by calculating key e-commerce and user behavior metrics on a monthly basis: **visits, pageviews, and transactions**.
 
 This analysis aims to:
@@ -56,7 +56,7 @@ ORDER BY 1;
 - **Result**
 <img width="635" height="107" alt="image" src="https://github.com/user-attachments/assets/e977de1d-5210-49a5-bb86-19c929dc06ab" />
 
-### Q2. **Bounce rate** by traffic source in **July 2017**
+### 📌 Q2. **Bounce rate** by traffic source in **July 2017**
 The purpose of this query is to **evaluate traffic quality by acquisition source** in July 2017 by calculating the **bounce rate for each traffic source**.
 
 This analysis aims to:
@@ -79,7 +79,7 @@ ORDER BY 2 DESC;
 - **Result**
 <img width="633" height="565" alt="image" src="https://github.com/user-attachments/assets/a1d82214-82b6-4311-b130-9df797772a02" />
 
-### Q3. Revenue by traffic source, by **week** and by **month** in June 2017
+### 📌 Q3. Revenue by traffic source, by **week** and by **month** in June 2017
 The purpose of this query is to **analyze revenue performance by traffic source across different time granularities** (monthly vs. weekly) in June 2017.
 
 This analysis aims to:
@@ -118,7 +118,7 @@ ORDER BY 3,2;
 - **Result**
 <img width="785" height="648" alt="image" src="https://github.com/user-attachments/assets/6c869d5a-70dd-47dc-bbf6-94d45f8a8f88" />
 
-### Q4. Average pageviews by user type (**purchasers vs non-purchasers**) in June–July 2017
+### 📌 Q4. Average pageviews by user type (**purchasers vs non-purchasers**) in June–July 2017
 The purpose of this query is to **compare user engagement between purchasers and non-purchasers** by calculating the **average number of pageviews per user** in June–July 2017.
 
 This analysis aims to:
@@ -166,7 +166,7 @@ ORDER BY 1;
 - **Result**
 <img width="511" height="80" alt="image" src="https://github.com/user-attachments/assets/82296bb8-b1bc-4b42-a6b4-bf81c583fd0e" />
 
-### Q5. Average number of transactions per purchasing user in **July 2017**
+### 📌 Q5. Average number of transactions per purchasing user in **July 2017**
 The purpose of this query is to **measure repeat purchasing behavior** by calculating the **average number of transactions per purchasing user** in July 2017.
 
 This analysis aims to:
@@ -190,7 +190,7 @@ GROUP BY 1;
 - **Result**
 <img width="484" height="54" alt="image" src="https://github.com/user-attachments/assets/392cb887-15c9-49ed-9ea1-8ef68d8cbd0c" />
 
-### Q6. Average revenue per session (only purchasers) in **July 2017**
+### 📌 Q6. Average revenue per session (only purchasers) in **July 2017**
 The purpose of this query is to **evaluate monetization efficiency** by calculating the **average revenue generated per session for purchasing users** in July 2017.
 
 This analysis aims to:
@@ -214,7 +214,7 @@ GROUP BY 1;
 - **Result**
 <img width="478" height="54" alt="image" src="https://github.com/user-attachments/assets/68d308eb-5e64-4e26-b8c4-336abbc4af4f" />
 
-### Q7. Other products purchased by customers who bought **"YouTube Men's Vintage Henley"** in **July 2017**
+### 📌 Q7. Other products purchased by customers who bought **"YouTube Men's Vintage Henley"** in **July 2017**
 The purpose of this query is to **identify cross-selling opportunities** by analyzing **additional products purchased by customers who bought _“YouTube Men's Vintage Henley”_** in July 2017.
 
 This analysis aims to:
@@ -252,7 +252,7 @@ ORDER BY 2 DESC, 1;
 - **Result**
 <img width="386" height="296" alt="image" src="https://github.com/user-attachments/assets/d98c8880-8905-426f-809c-fb3061e9c7eb" />
 
-### Q8. **Cohort map** from product view → add-to-cart → purchase in January–March 2017
+### 📌 Q8. **Cohort map** from product view → add-to-cart → purchase in January–March 2017
 The purpose of this query is to **analyze the e-commerce conversion funnel** by tracking user behavior from **product view → add-to-cart → purchase** during January–March 2017.
 
 This analysis aims to:
@@ -317,7 +317,7 @@ ORDER BY 1;
 
 ---
 
-## Insights & Recommendations
+## 💡 Insights & Recommendations
 
 | Query | Insight | Recommendation |
 |------|--------|----------------|
