@@ -317,7 +317,7 @@ ORDER BY 1;
 
 ---
 
-## 💡 Insights & Recommendations
+## 🚀 Insights & Recommendations
 
 | Query | Insight | Recommendation |
 |------|--------|----------------|
