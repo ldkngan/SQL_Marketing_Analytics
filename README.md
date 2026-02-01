@@ -9,24 +9,37 @@ This project analyzes Google Analytics sample data on BigQuery to uncover **mark
 ## 📋 Table of Contents
 1. Introduction
 2. SQL Queries & Results
-3. Insights & Recommendations
+3. Recommendations
 
 ---
 
 ## ✨ Introduction
 ### 🎯 Objectives
-- This project analyzes the Google Analytics sample dataset on **BigQuery** using **SQL**.  
-- The goal of this project is to practice SQL query skills, calculate key metrics in user behavior and e-commerce analysis, and generate meaningful business insights from real-world data.  
+- This project uses SQL to analyze the Google Analytics Sample Dataset on BigQuery.
+- The objective is to practice real-world SQL querying, compute key user behavior and e-commerce performance metrics, and translate raw session-level data into actionable business insights.
+
+### 🧩 Business Context
+- The Google Merchandise Store operates as an e-commerce retailer, relying heavily on digital traffic to drive sales. Understanding how users interact with the website—from first visit to purchase—is critical to improving conversion efficiency, marketing effectiveness, and revenue performance.
+- This analysis simulates the role of a Data Analyst supporting stakeholders in marketing, growth, and e-commerce teams by turning web analytics data into insight-driven decisions.
+
+### ❓ Business Questions
+This project aims to answer key business questions such as:
+- How do users behave across different stages of the purchase funnel?
+- What are the differences in engagement between purchasers vs. non-purchasers?
+- Which traffic sources contribute most to conversions and revenue?
+- How does user behavior evolve over time based on cohort analysis?
+- Where are the biggest drop-offs in the conversion funnel?
 
 ### 📂 Dataset
-- **Source:** [Google Analytics Sample Dataset](https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2sgoogle_analytics_sample!3sga_sessions_20170801) (BigQuery Public Data)  
-- **Description:** Session data from 2017 for the Google Merchandise Store, including user interactions, behaviors, and purchase transactions.  
-- **Main table:** `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`
+- Source: Google Analytics Sample Dataset (BigQuery Public Data)
+- Description: Session-level data from 2017 for the Google Merchandise Store, including user interactions, on-site behavior, and purchase transactions.
+- Main table: bigquery-public-data.google_analytics_sample.ga_sessions_2017*
 
 ### ⚒️ Skills Demonstrated
-- **SQL:** Window functions, CTEs, UNION, JOIN, aggregate functions.  
-- **Customer behavior analysis:** bounce rate, funnel conversion, cohort tracking.  
-- **Business insights:** customer purchase behavior, revenue contribution, traffic source effectiveness.
+- SQL: CTEs, window functions, JOIN, UNION, aggregate functions
+- Customer behavior analysis: bounce rate, marketing funnel analysis, cohort tracking
+- E-commerce analytics: conversion rate, revenue contribution, traffic source effectiveness
+- Business thinking: translating analytical results into insights relevant to decision-making
 
 ---
 
