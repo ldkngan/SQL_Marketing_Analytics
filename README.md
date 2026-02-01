@@ -56,6 +56,8 @@ ORDER BY 1;
 - **Result**
 <img width="635" height="107" alt="image" src="https://github.com/user-attachments/assets/e977de1d-5210-49a5-bb86-19c929dc06ab" />
 
+💡 **Insight:** Visits and pageviews increased steadily from January to March 2017, indicating consistent traffic growth in early 2017.
+
 ### 📌 Q2. **Bounce rate** by traffic source in **July 2017**
 The purpose of this query is to **evaluate traffic quality by acquisition source** in July 2017 by calculating the **bounce rate for each traffic source**.
 
@@ -78,6 +80,8 @@ ORDER BY 2 DESC;
 ```
 - **Result**
 <img width="633" height="565" alt="image" src="https://github.com/user-attachments/assets/a1d82214-82b6-4311-b130-9df797772a02" />
+
+💡 **Insight:** Several traffic sources showed unusually high bounce rates in July 2017, suggesting issues with landing page relevance or low-quality traffic.
 
 ### 📌 Q3. Revenue by traffic source, by **week** and by **month** in June 2017
 The purpose of this query is to **analyze revenue performance by traffic source across different time granularities** (monthly vs. weekly) in June 2017.
@@ -117,6 +121,8 @@ ORDER BY 3,2;
 ```
 - **Result**
 <img width="785" height="648" alt="image" src="https://github.com/user-attachments/assets/6c869d5a-70dd-47dc-bbf6-94d45f8a8f88" />
+
+💡 **Insight:** Some traffic sources generated stable weekly revenue but showed noticeable variation at the monthly level, likely influenced by specific marketing campaigns.
 
 ### 📌 Q4. Average pageviews by user type (**purchasers vs non-purchasers**) in June–July 2017
 The purpose of this query is to **compare user engagement between purchasers and non-purchasers** by calculating the **average number of pageviews per user** in June–July 2017.
@@ -166,6 +172,8 @@ ORDER BY 1;
 - **Result**
 <img width="511" height="80" alt="image" src="https://github.com/user-attachments/assets/82296bb8-b1bc-4b42-a6b4-bf81c583fd0e" />
 
+💡 **Insight:** Purchasers recorded significantly higher pageviews than non-purchasers, demonstrating a strong correlation between user engagement and purchase likelihood.
+
 ### 📌 Q5. Average number of transactions per purchasing user in **July 2017**
 The purpose of this query is to **measure repeat purchasing behavior** by calculating the **average number of transactions per purchasing user** in July 2017.
 
@@ -190,6 +198,8 @@ GROUP BY 1;
 - **Result**
 <img width="484" height="54" alt="image" src="https://github.com/user-attachments/assets/392cb887-15c9-49ed-9ea1-8ef68d8cbd0c" />
 
+💡 **Insight:** Purchasing users tended to complete more than one transaction, indicating repeat purchase behavior and potential customer loyalty.
+
 ### 📌 Q6. Average revenue per session (only purchasers) in **July 2017**
 The purpose of this query is to **evaluate monetization efficiency** by calculating the **average revenue generated per session for purchasing users** in July 2017.
 
@@ -213,6 +223,8 @@ GROUP BY 1;
 ```
 - **Result**
 <img width="478" height="54" alt="image" src="https://github.com/user-attachments/assets/68d308eb-5e64-4e26-b8c4-336abbc4af4f" />
+
+💡 **Insight:** Average revenue per purchasing session was relatively high, highlighting strong spending power per visit.
 
 ### 📌 Q7. Other products purchased by customers who bought **"YouTube Men's Vintage Henley"** in **July 2017**
 The purpose of this query is to **identify cross-selling opportunities** by analyzing **additional products purchased by customers who bought _“YouTube Men's Vintage Henley”_** in July 2017.
@@ -251,6 +263,8 @@ ORDER BY 2 DESC, 1;
 ```
 - **Result**
 <img width="386" height="296" alt="image" src="https://github.com/user-attachments/assets/d98c8880-8905-426f-809c-fb3061e9c7eb" />
+
+💡 **Insight:** Customers who bought *YouTube Men's Vintage Henley* often purchased additional products, revealing clear cross-sell opportunities.
 
 ### 📌 Q8. **Cohort map** from product view → add-to-cart → purchase in January–March 2017
 The purpose of this query is to **analyze the e-commerce conversion funnel** by tracking user behavior from **product view → add-to-cart → purchase** during January–March 2017.
@@ -315,17 +329,19 @@ ORDER BY 1;
 - **Result**
 <img width="881" height="109" alt="image" src="https://github.com/user-attachments/assets/d64aa493-d8af-4b10-b91c-e7e4c73532ef" />
 
+💡 **Insight:** Conversion rates from product view to add-to-cart and purchase were relatively low, pointing to friction within the conversion funnel.
+
 ---
 
-## 🚀 Insights & Recommendations
+## 🚀 Recommendations
 
-| Query | Insight | Recommendation |
-|------|--------|----------------|
-| **Q1. Total visits, pageviews, and transactions in January–March 2017** | Visits and pageviews increased steadily month by month, indicating consistent growth in traffic during early 2017. | Continue investing in traffic sources driving steady growth, while closely monitoring conversion rates to ensure traffic growth translates into transactions rather than vanity metrics. |
-| **Q2. Bounce rate by traffic source in July 2017** | Some traffic sources showed unusually high bounce rates, suggesting a need to optimize landing pages or improve traffic quality. | Optimize landing pages for high-bounce sources by improving page speed, content relevance, and mobile UX, and refine targeting to reduce low-intent traffic. |
-| **Q3. Revenue by traffic source, by week and by month in June 2017** | Certain traffic sources generated stable weekly revenue but showed different patterns at the monthly level, possibly reflecting campaign effects. | Analyze campaign performance at a monthly level to identify revenue-driving sources, replicate high-performing campaigns, and reallocate budget from underperforming channels. |
-| **Q4. Average pageviews by user type (purchasers vs non-purchasers) in June–July 2017** | Purchasers had significantly higher pageviews than non-purchasers, showing a strong link between engagement and purchase likelihood. | Increase engagement among non-purchasers through personalized content, product recommendations, and improved internal navigation to move users closer to conversion. |
-| **Q5. Average number of transactions per purchasing user in July 2017** | Purchasing users tended to make more than one transaction, indicating repeat purchase behavior. | Focus on retention strategies such as loyalty programs, personalized offers, and remarketing campaigns to maximize customer lifetime value. |
-| **Q6. Average revenue per session (only purchasers) in July 2017** | Each purchasing session contributed a relatively high average revenue, highlighting strong spending per visit. | Maximize revenue per session by implementing upsell and cross-sell strategies, product bundles, and a frictionless checkout experience. |
-| **Q7. Other products purchased by customers who bought "YouTube Men's Vintage Henley" in July 2017** | Customers who purchased this product often bought additional items, suggesting strong cross-sell opportunities. | Leverage product bundling, “frequently bought together” recommendations, and targeted promotions to increase average order value. |
-| **Q8. Cohort map from product view → add-to-cart → purchase in January–March 2017** | Conversion rates from product views to add-to-cart and purchase were relatively low, indicating friction in the conversion funnel. | Optimize the funnel by improving product page clarity, strengthening calls-to-action, reducing checkout friction, and testing UX improvements to increase conversion rates. |
+| Query | Recommendation |
+|------|----------------|
+| **Q1. Total visits, pageviews, and transactions in January–March 2017** | Continue investing in traffic sources driving steady growth, while closely monitoring conversion rates to ensure increased traffic leads to actual transactions rather than vanity metrics. |
+| **Q2. Bounce rate by traffic source in July 2017** | Optimize landing pages for high-bounce traffic sources by improving page speed, content relevance, and mobile UX, and refine targeting to reduce low-quality traffic. |
+| **Q3. Revenue by traffic source, by week and by month in June 2017** | Evaluate campaign performance at a monthly level to identify revenue-driving traffic sources, replicate successful campaigns, and reallocate budget from underperforming channels. |
+| **Q4. Average pageviews by user type (purchasers vs non-purchasers) in June–July 2017** | Increase engagement among non-purchasers through personalized content, product recommendations, and improved internal navigation to move users closer to conversion. |
+| **Q5. Average number of transactions per purchasing user in July 2017** | Prioritize retention strategies such as loyalty programs, personalized offers, and remarketing campaigns to maximize customer lifetime value from repeat buyers. |
+| **Q6. Average revenue per session (only purchasers) in July 2017** | Maximize revenue per purchasing session by implementing upsell and cross-sell strategies, product bundles, and a frictionless checkout experience. |
+| **Q7. Other products purchased by customers who bought "YouTube Men's Vintage Henley" in July 2017** | Leverage cross-sell opportunities through product bundling, “frequently bought together” recommendations, and targeted promotions to increase average order value. |
+| **Q8. Cohort map from product view → add-to-cart → purchase in January–March 2017** | Optimize the conversion funnel by improving product page clarity, strengthening calls-to-action, reducing checkout friction, and testing UX enhancements to increase conversion rates. |
