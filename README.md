@@ -1,4 +1,4 @@
-# SQL | E-Commerce Marketing Analysis
+# Analyze E-Commerce Marketing Performance Using SQL (BigQuery)
 ![ecommerce marketing analysis](https://github.com/user-attachments/assets/9d6787a8-95d8-4587-a6b6-34dd885eac9f)
 
 This project analyzes Google Analytics sample data on BigQuery to uncover **marketing performance, user behavior, and revenue insights**.
